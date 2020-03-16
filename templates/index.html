@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="row">
+    {% for e in entries %}
+        <div class="col-md-4 col-lg-3">
+            <h5><a href="{{ e.link }}">{{ e.title }}</a></h5>
+            <h6>Published on: {{ e.published }}</h6>
+            {% for content in e.content %}
+                <p>{{ e.summary_detail.value|safe }}</p>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
